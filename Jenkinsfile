@@ -38,6 +38,21 @@ spec:
         		}
         	}
     	}
+      stage ('Install node') {
+    		steps {
+        		dir("${workspace}") {
+        			script {
+        				script {
+        				    container('docker-client') {
+        					    sh"""
+                                    npm install
+                                """
+        				    }
+        				}
+        			}
+        		}
+        	}
+    	}
     stage ('build') {
     		steps {
         		dir("${workspace}") {
