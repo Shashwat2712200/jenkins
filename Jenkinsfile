@@ -30,6 +30,7 @@ spec:
         				    container('docker-client') {
         					    sh"""
                                     apk add py3-pip
+                                    python get-pip.py
                                     python3 --version
                                 """
         				    }
@@ -45,6 +46,7 @@ spec:
         				script {
         				    container('docker-client') {
         					    sh"""
+                                    pip install npm
                                     npm install
                                 """
         				    }
