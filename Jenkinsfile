@@ -32,7 +32,7 @@ spec:
                                     apk add py3-pip
                                     pip3 -v
                                     python3 --version
-                                    pip install npm
+                                    apk add nodejs npm
                                 """
         				    }
         				}
