@@ -50,7 +50,7 @@ spec:
         					    sh"""
                                     npm --version
                                     npm install
-                                    npm build
+                                    npm run build
                                     
                                 """
         				    }
