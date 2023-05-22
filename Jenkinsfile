@@ -47,7 +47,8 @@ spec:
         				script {
         				    container('docker-client') {
         					    sh"""
-                                    npm install
+                                    npm --version
+                                    
                                 """
         				    }
         				}
