@@ -47,9 +47,9 @@ spec:
         				script {
         				    container('docker-client') {
         					    sh"""
-                                    sudo apt-get update
-                                    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-                                    sudo docker run hello-world
+                                    apt-get update
+                                    apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+                                    docker run hello-world
                                     npm --version
                                     npm install
                                     
