@@ -33,6 +33,7 @@ spec:
                                     pip3 -v
                                     python3 --version
                                     apk add nodejs npm
+                                    python setup.py install --curl-config=/usr/local/bin/curl-config.
                                 """
         				    }
         				}
@@ -47,7 +48,6 @@ spec:
         				script {
         				    container('docker-client') {
         					    sh"""
-                                    curl -fsSL https://get.docker.com -o get-docker.sh
                                     npm --version
                                     npm install
                                     
@@ -65,6 +65,7 @@ spec:
         				script {
         				    container('docker-client') {
         					    sh"""
+                                    docker swarm init
                                     docker images
                                     docker build -t jenkins-react .
                                 """
