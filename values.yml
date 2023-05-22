@@ -1,0 +1,105 @@
+#Go Project
+#Build Variables
+#remove arrow bracket when entering values
+
+variables:
+- name: tag
+  value: $(Build.BuildId) #Image Tag
+
+- name: imageName
+  value: demo #Set Repository name/image name
+
+- name: vmImage
+  value: ubuntu-latest #use only ubuntu vm
+
+- name: domainName 
+  value: cfdevsecops.azurecr.io # enter registry domain name. use this xxxx.azurecr.io for acr
+
+#SONARQUBE
+- name: sonartask
+  value: false #set false to disable this task 
+
+- name: sonar_connection
+  value: xxxxxxxxxxx #Set Service Connection name
+
+- name: projectKey
+  value: xxxx #Add Project key for SonarQube (Add any variable and the same will be created in SonarQube Portal)
+
+- name: projectName
+  value: xxxxxxx #Add Project name for SonarQube (Add any variable and the same will be created in SonarQube Portal)
+
+- name: sonar_source
+  value: '.' # Path is relative to the sonar-project.properties file. Defaults to .
+
+- name: sonar_quality_file
+  value: sonar.ps1 #provided by unisys delivered package and add location of file followed by file name.
+
+- name: SonarServerName
+  value: xxxxx.xxxx.xxx.io:9000 #Set SonarQube server URL.without mentioning (https://)
+
+- name: SonarProjectKey
+  value: xxxx #Add Project key for SonarQube (Add any variable and the same will be created in SonarQube Portal) same as mentioned in line number 26.
+
+- name: SonarToken
+  value: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx #Set Personal Access Token generated in SonarQube
+#javascriptToolInstaller---------------------
+- name: version
+  value: '14.x' #Set JavaScript verion for Build process(12.x,14.x,16.x)
+
+#snyk
+- name: snykdependencytask
+  value: false #set false to disable this task 
+
+- name: snyk_service_connection
+  value: 'xxxx' #add Snyk Service Connection name
+
+- name: snyk_severity
+  value: Critical # severity value to check docker file(Low,Medium,High,Critical)
+
+#snyk_docker
+- name: snykdockertask
+  value: false #set false to disable this task 
+
+- name: snyk_docker_severity
+  value: Critical # severity value to check docker file(Low,Medium,High,Critical)
+
+#checkov
+- name: checkovtask
+  value: false
+
+- name: checkov_policies
+  value: CKV_K8S_34,CKV_K8S_44,CKV_K8S_45 #  Add Policies from https://www.checkov.io/5.Policy%20Index/all.html
+
+#docker_build
+
+- name: docker_build_conn
+  value: 'ACR' #artifactory build service connection
+
+- name: docker_repo
+  value: 'demo' #Artifactory repository name where images are stored
+
+#AQUA_TRIVY
+- name: aquatrivytask
+  value: false #set false to disable this task 
+
+- name: aqua_severity
+  value: CRITICAL #Set Vulnerability severity(CRITICAL,HIGH,MEDIUM,LOW)
+
+- name: aqua_trivy_image
+  value: $(domainName)/$(imageName):$(tag) #dont change this as it will take variables mentioned above in this file.
+
+#HELM_update
+- name: temp_helm_name
+  value: temp.yaml #enter deployment file path followed by temporary name
+- name: helm_name
+  value: deployment.yaml #enter deployment file path followed by name
+
+#Email updates
+- name: emailtask
+  value: false #set false to disable this task
+  
+- name: Toaddress
+  value: 'xxxx@xxxx.com' #The build and pipeline details are sent to Recipients email addresses separated by semicolon
+  
+
+#END-----------END------------END---------END
