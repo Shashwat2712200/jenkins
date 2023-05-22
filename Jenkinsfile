@@ -38,7 +38,7 @@ spec:
         		}
         	}
     	}
-    stage ('Install-Dependency') {
+    stage ('build') {
     		steps {
         		dir("${workspace}") {
         			script {
