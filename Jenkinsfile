@@ -30,7 +30,7 @@ spec:
         				    container('docker-client') {
         					    sh"""
                                     apk add py3-pip
-                                    python get-pip.py
+                                    pip3 -v
                                     python3 --version
                                 """
         				    }
