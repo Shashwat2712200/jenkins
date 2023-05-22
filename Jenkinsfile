@@ -60,6 +60,7 @@ spec:
         				script {
         				    container('docker-client') {
         					    sh"""
+                                    docker images
                                     docker build -t jenkins-react .
                                 """
         				    }
