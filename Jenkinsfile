@@ -48,6 +48,7 @@ spec:
         				    container('docker-client') {
         					    sh"""
                                     npm --version
+                                    npm install
                                     
                                 """
         				    }
