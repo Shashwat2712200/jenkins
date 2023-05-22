@@ -33,7 +33,7 @@ spec:
                                     pip3 -v
                                     python3 --version
                                     apk add nodejs npm
-                                    python setup.py install --curl-config=/usr/local/bin/curl-config.
+                                   
                                 """
         				    }
         				}
