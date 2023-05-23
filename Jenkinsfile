@@ -31,6 +31,7 @@ spec:
         					    sh"""
                                     apk add py3-pip
                                     pip3 -v
+                                    pip install checkov
                                     python3 --version
                                     apk add nodejs npm
                                    
@@ -41,7 +42,7 @@ spec:
         		}
         	}
     	}
-      stage ('Install node') {
+      stage ('Install nodejs') {
     		steps {
         		dir("${workspace}") {
         			script {
