@@ -79,3 +79,17 @@ spec:
     	}
    }
 }
+stage('Push image to JFrog') {
+steps {
+withCredentials([(credentialsId: 'a4dcccc4-57ce-44ff-8386-38d1a45e6d8c')])
+   dir("${workspace}") {
+        			script {
+        				script {
+        				    container('docker-client') {
+        					    sh"""
+                                   docker push dsaf.jfrog.io/images/jenkins-react
+                                """
+        				    }
+        				}
+        			}
+        		}
