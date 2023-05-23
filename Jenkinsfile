@@ -69,7 +69,7 @@ spec:
         					    sh"""
                                     docker swarm init
                                     docker images
-                                    docker build -t jenkins-react .
+                                    docker build -t jenkins-react:latest .
                                 """
         				    }
         				}
@@ -81,15 +81,16 @@ spec:
 }
 stage('Push image to JFrog') {
 steps {
-withCredentials([(credentialsId: 'a4dcccc4-57ce-44ff-8386-38d1a45e6d8c')])
    dir("${workspace}") {
         			script {
         				script {
         				    container('docker-client') {
         					    sh"""
-                                   docker push dsaf.jfrog.io/images/jenkins-react
+                                   dockerImagePushToRegistry(registryURL: "https://dsaf.jfrog.io", registryCredentialsId: "a4dcccc4-57ce-44ff-8386-38d1a45e6d8c", imageName: "jenkins-react", imageTag: "latest", dockerRepoName: "images", registryTagURL: "dsaf.jfrog.io")
                                 """
         				    }
         				}
         			}
         		}
+}
+}
